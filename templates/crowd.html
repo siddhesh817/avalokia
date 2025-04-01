@@ -1,0 +1,137 @@
+<!-- templates/crowd.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowd Management | Avalokia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crowd.css') }}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Avalokia</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="{{ url_for('static', filename='images/bg.jpg') }}" alt="Avalokia Crowd Management Solutions" class="hero-img">
+        <div class="hero-content">
+            <h1>CROWD MANAGEMENT</h1>
+            <p>Advanced video analytics for monitoring crowd density, flow, and safety in public spaces</p>
+            <div class="hero-buttons">
+                <a href="#analysis" class="hero-btn">Try Analysis</a>
+                <a href="#contact" class="hero-btn outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Crowd Analysis Section -->
+    <section class="analysis" id="analysis">
+        <div class="container">
+            <div class="analysis-header">
+                <h2>Crowd Video Analysis</h2>
+                <p>Our AI-powered system analyzes crowd footage to provide real-time insights on density, movement patterns, and suspicious activities.</p>
+            </div>
+            
+            <div class="analysis-content">
+                <div class="upload-container">
+                    <h3>Upload Your Crowd Footage</h3>
+                    <form action="/analyze-crowd" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="video">Select video file to analyze:</label>
+                            <input type="file" id="video" name="video" accept="video/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="analysis-type">Analysis Type:</label>
+                            <select id="analysis-type" name="analysis-type">
+                                <option value="density">Crowd Density</option>
+                                <option value="flow">Movement Flow</option>
+                                <option value="anomaly">Anomaly Detection</option>
+                                <option value="comprehensive">Comprehensive Report</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">Analyze Video</button>
+                    </form>
+                </div>
+                
+                <div class="analysis-features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <img src="{{ url_for('static', filename='images/crowd.jpg') }}" alt="Crowd Density">
+                        </div>
+                        <h3>Crowd Density</h3>
+                        <p>Measure crowd density in real-time to identify overcrowding and enable proactive management of spaces.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <img src="{{ url_for('static', filename='images/flow.png') }}" alt="Movement Flow">
+                        </div>
+                        <h3>Movement Flow</h3>
+                        <p>Analyze crowd movement patterns to optimize space layout and improve traffic flow in public areas.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <img src="{{ url_for('static', filename='images/anamoly.png') }}" alt="Anomaly Detection">
+                        </div>
+                        <h3>Anomaly Detection</h3>
+                        <p>Identify unusual behaviors and suspicious activities to enhance security and public safety.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results Demo Section -->
+    <section class="results-demo">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="demo-content">
+                <div class="demo-step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Crowd Video</h3>
+                    <p>Upload video footage from your venue, event, or public space.</p>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our advanced AI processes the video to analyze crowd behavior and density.</p>
+                </div>
+                <div class="demo-step">
+                    <div class="step-number">3</div>
+                    <h3>Receive Insights</h3>
+                    <p>Get detailed analytics and real-time alerts for proactive management.</p>
+                </div>
+            </div>
+            <div class="demo-visual">
+                <img src="{{ url_for('static', filename='images/bg.jpg') }}" alt="Crowd Analysis Demo" class="demo-img">
+                <div class="demo-overlay">
+                    <h3>Sample Analysis Results</h3>
+                    <p>See how our technology transforms crowd footage into actionable safety and management insights.</p>
+                    <a href="#" class="demo-btn">View Demo Report</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add scrolled class to navigation when scrolling
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
